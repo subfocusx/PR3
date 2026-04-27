@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Wordstat Parser",
+  "version": "1.0.0",
+  "description": "Парсинг ключевых фраз и их частотности с Wordstat Yandex",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://wordstat.yandex.ru/*"
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "Собрать данные с Wordstat"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://wordstat.yandex.ru/*"],
+      "js": ["scripts/content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
